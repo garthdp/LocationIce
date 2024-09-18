@@ -102,6 +102,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
                 val url = URL("https://api.geoapify.com/v2/places?categories=${category}&bias=proximity:${currentLocation.longitude},${currentLocation.latitude}&limit=20&apiKey=1d71a3ed16f4429a9bb828d8e1e04d8b")
                 val json = url.readText()
                 if(json.equals("null")){
+                    Log.d("Error", "Nothing found")
                 }
                 else{
                     val placesResponse = Gson().fromJson(json, Response::class.java)
@@ -114,7 +115,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
                     }
                 }
             } catch (e: Exception) {
-                Log.d("AddNewUser", "Error: " + e.toString())
+                Log.d("Error", "Fetch error occured")
             }
         }
     }
