@@ -52,7 +52,6 @@ class MainActivity : AppCompatActivity(), LocationListener {
             getPlaces(categoryList.selectedItem.toString().toLowerCase())
         }
 
-        //https://api.geoapify.com/v2/places?categories=commercial.supermarket&bias=proximity:-122.084,37.421998333333335&limit=20&apiKey=1d71a3ed16f4429a9bb828d8e1e04d8b
         getLocation()
     }
     private fun getLocation(){
