@@ -105,7 +105,6 @@ class MainActivity : AppCompatActivity(), LocationListener {
                 }
                 else{
                     val placesResponse = Gson().fromJson(json, Response::class.java)
-                    Log.d("APIRES", url.toString())
                     Handler(Looper.getMainLooper()).post{
                         places.clear()
                         places.addAll(placesResponse.features)
