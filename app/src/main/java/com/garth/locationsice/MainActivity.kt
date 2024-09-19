@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.Manifest
+import android.content.Intent
 import android.location.Geocoder
 import android.location.Location
 import android.location.LocationListener
@@ -22,6 +23,7 @@ import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Spinner
+import com.google.android.gms.maps.MapView
 import com.google.gson.Gson
 import java.io.IOError
 import java.io.IOException
@@ -44,6 +46,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
         setContentView(R.layout.activity_main)
         val button: Button = findViewById(R.id.btnFind)
         val categoryList = findViewById<Spinner>(R.id.categories)
+        val map = findViewById<MapView>(R.id.mapView)
 
         val adapter = ArrayAdapter(this, R.layout.spinner_item, categories)
         categoryList.adapter = adapter
@@ -72,6 +75,7 @@ class MainActivity : AppCompatActivity(), LocationListener {
     }
     override fun onLocationChanged(location: Location){
         currentLocation = location
+        val map = findViewById<MapView>(R.id.mapView)
         getAddressFromLocation(location)
     }
 
